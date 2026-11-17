@@ -57,6 +57,8 @@ window.__playforjaZipReady = new Promise((resolve,reject)=>{
    const img=await zip.file(root+"assets/referencia-registro.jpg").async("base64");
    page=page.replaceAll('src="assets/referencia-registro.jpg"','src="data:image/jpeg;base64,'+img+'"');
   }
+  const backendLoader = '<script>(function(){var urls=["https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0","https://unpkg.com/@supabase/supabase-js@2.119.0"];var i=0;function next(){if(i>=urls.length){console.error("[PLAYFORJA] No se pudo cargar Supabase JS");return;}var s=document.createElement("script");s.src=urls[i++];s.onload=function(){var app=document.createElement("script");app.src="./assets/playforja-backend.js";document.body.appendChild(app);};s.onerror=next;document.head.appendChild(s);}next();})();</script>';
+  page=page.replace(/<\\/body>/i, backendLoader+"</body>");
   frame.srcdoc=page;
   frame.onload=()=>{document.getElementById("loading").remove();frame.style.display="block";document.title="PLAYFORJA — Forjá tu leyenda";};
  }catch(error){
