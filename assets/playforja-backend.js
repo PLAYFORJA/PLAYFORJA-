@@ -105,6 +105,27 @@
         .order("registered_at", { ascending: false }));
     },
 
+    async getRooms() {
+      return result(client.from("game_rooms")
+        .select("id,code,title,game,platform,mode,max_players,member_count,status,created_at")
+        .in("status", ["open", "full"])
+        .order("created_at", { ascending: false })
+        .limit(30));
+    },
+
+    async createRoom({ title, game, platform, mode, max_players }) {
+      await currentUser();
+      return result(client.rpc("create_game_room", {
+        p_title: title, p_game: game, p_platform: platform,
+        p_mode: mode, p_max_players: Number(max_players)
+      }));
+    },
+
+    async joinRoom(code) {
+      await currentUser();
+      return result(client.rpc("join_game_room", { p_room_code: code }));
+    },
+
     async getFrames() {
       return result(client.from("frame_catalog")
         .select("code,title,price_pf,active")
