@@ -16,9 +16,27 @@ a{color:#f4d48a}#app{display:none;width:100%;height:100vh;border:0;background:#0
 <body>
 <main id="loading"><section class="panel"><h1>⚒️ PLAYFORJA</h1><p id="status">Cargando las referencias originales y preparando la página…</p><noscript>Necesitás activar JavaScript para cargar la experiencia visual.</noscript></section></main>
 <iframe id="app" title="PLAYFORJA — Forjá tu leyenda"></iframe>
-<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script>
+window.__playforjaZipReady = new Promise((resolve,reject)=>{
+ const urls=[
+  "https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js",
+  "https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"
+ ];
+ let index=0;
+ const next=()=>{
+  if(index>=urls.length){reject(new Error("No se pudo cargar el componente de lectura del paquete."));return;}
+  const script=document.createElement("script");
+  script.src=urls[index++];
+  script.onload=()=>window.JSZip?resolve():next();
+  script.onerror=next;
+  document.head.appendChild(script);
+ };
+ next();
+});
+</script>
 <script>
 (async()=>{
+ await window.__playforjaZipReady;
  const status=document.getElementById("status");
  const frame=document.getElementById("app");
  try{
