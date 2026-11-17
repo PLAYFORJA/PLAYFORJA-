@@ -169,10 +169,25 @@
     },
 
     async getCommunityPosts(channelId) {
-      return result(client.from("community_posts")
-        .select("id,body,sticker_code,created_at,author_id,author:profiles!community_posts_author_profile_fkey(username),community_reactions(reaction,user_id)")
+      const posts = await result(client.from("community_posts")
+        .select("id,body,sticker_code,created_at,author:profiles!community_posts_author_profile_fkey(username)")
         .eq("channel_id", channelId).eq("status", "published")
         .order("created_at", { ascending: false }).limit(50));
+      if (!posts.length) return [];
+      const ids = posts.map(post => post.id);
+      const counts = await result(client.from("community_reaction_counts")
+        .select("post_id,reaction,total").in("post_id", ids));
+      const { data: userData } = await client.auth.getUser();
+      let mine = [];
+      if (userData.user) {
+        mine = await result(client.from("community_reactions")
+          .select("post_id,reaction").in("post_id", ids).eq("user_id", userData.user.id));
+      }
+      return posts.map(post => ({
+        ...post,
+        reaction_counts: counts.filter(item => item.post_id === post.id),
+        my_reaction: mine.find(item => item.post_id === post.id)?.reaction || null
+      }));
     },
 
     async publishCommunityPost(channelId, body, stickerCode = null) {
