@@ -143,6 +143,68 @@
       return result(client.rpc("get_leaderboard"));
     },
 
+
+    async getCommunityChannel(slug = "playforja-oficial") {
+      const rows = await result(client.from("community_channels")
+        .select("id,slug,title,description,follower_count")
+        .eq("slug", slug).limit(1));
+      if (!rows.length) throw new Error("La comunidad todavía no está disponible.");
+      const channel = rows[0];
+      const { data: userData } = await client.auth.getUser();
+      let following = false;
+      if (userData.user) {
+        const rows = await result(client.from("community_follows").select("channel_id")
+          .eq("channel_id", channel.id).eq("user_id", userData.user.id).limit(1));
+        following = rows.length > 0;
+      }
+      return { ...channel, following, user: userData.user || null };
+    },
+
+    async followCommunity(channelId, follow = true) {
+      const user = await currentUser();
+      if (follow) return result(client.from("community_follows")
+        .insert({ channel_id: channelId, user_id: user.id }).select().single());
+      return result(client.from("community_follows").delete()
+        .eq("channel_id", channelId).eq("user_id", user.id));
+    },
+
+    async getCommunityPosts(channelId) {
+      return result(client.from("community_posts")
+        .select("id,body,sticker_code,created_at,author_id,author:profiles!community_posts_author_id_fkey(username),community_reactions(reaction,user_id)")
+        .eq("channel_id", channelId).eq("status", "published")
+        .order("created_at", { ascending: false }).limit(50));
+    },
+
+    async publishCommunityPost(channelId, body, stickerCode = null) {
+      const user = await currentUser();
+      const clean = String(body || "").trim();
+      if (!clean || clean.length > 1000) throw new Error("La publicación debe tener entre 1 y 1000 caracteres.");
+      return result(client.from("community_posts")
+        .insert({ channel_id: channelId, author_id: user.id, body: clean, sticker_code: stickerCode })
+        .select("id").single());
+    },
+
+    async reactToCommunityPost(postId, reaction) {
+      const user = await currentUser();
+      const existing = await result(client.from("community_reactions").select("reaction")
+        .eq("post_id", postId).eq("user_id", user.id).limit(1));
+      if (existing.length && existing[0].reaction === reaction) {
+        return result(client.from("community_reactions").delete()
+          .eq("post_id", postId).eq("user_id", user.id));
+      }
+      if (existing.length) {
+        await result(client.from("community_reactions").delete()
+          .eq("post_id", postId).eq("user_id", user.id));
+      }
+      return result(client.from("community_reactions")
+        .insert({ post_id: postId, user_id: user.id, reaction }));
+    },
+
+    async getCommunityStickers() {
+      return result(client.from("community_stickers")
+        .select("code,title,symbol,kind").eq("active", true).order("kind").order("title"));
+    },
+
     async getSession() {
       return result(client.auth.getSession());
     },
