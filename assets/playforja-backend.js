@@ -170,7 +170,7 @@
 
     async getCommunityPosts(channelId) {
       return result(client.from("community_posts")
-        .select("id,body,sticker_code,created_at,author_id,author:profiles!community_posts_author_id_fkey(username),community_reactions(reaction,user_id)")
+        .select("id,body,sticker_code,created_at,author_id,author:profiles!community_posts_author_profile_fkey(username),community_reactions(reaction,user_id)")
         .eq("channel_id", channelId).eq("status", "published")
         .order("created_at", { ascending: false }).limit(50));
     },
