@@ -1,5 +1,4 @@
 -- PLAYFORJA community foundation
--- Applied to the hosted project on 2026-11-17.
 create table if not exists public.community_channels (
  id uuid primary key default gen_random_uuid(), slug text not null unique, title text not null,
  description text not null default '', follower_count integer not null default 0 check (follower_count >= 0),
@@ -29,6 +28,11 @@ create table if not exists public.community_reactions (
  reaction text not null check (reaction in ('forja','gg','fuego','corazon')),
  created_at timestamptz not null default now(), primary key(post_id,user_id)
 );
+do $$ begin
+ if not exists(select 1 from pg_constraint where conname='community_posts_author_profile_fkey' and conrelid='public.community_posts'::regclass) then
+  alter table public.community_posts add constraint community_posts_author_profile_fkey foreign key(author_id) references public.profiles(id) on delete cascade;
+ end if;
+end $$;
 create index if not exists community_posts_channel_created_idx on public.community_posts(channel_id,created_at desc);
 create index if not exists community_posts_author_idx on public.community_posts(author_id);
 create index if not exists community_follows_user_idx on public.community_follows(user_id);
