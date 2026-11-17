@@ -1,29 +1,51 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090909"><meta name="description" content="PLAYFORJA — Forjá tu leyenda. Torneos, salas y progresión gamer sin dinero real."><title>PLAYFORJA — Forjá tu leyenda</title><link rel="stylesheet" href="assets/playforja.css"></head>
-<body><div class="shell">
-<header class="topbar">
-<a class="brand" href="#inicio" aria-label="PLAYFORJA inicio"><svg viewBox="0 0 100 90" role="img" aria-label="Yunque de PLAYFORJA"><defs><linearGradient id="g" x2="0" y2="1"><stop stop-color="#fff0a8"/><stop offset=".48" stop-color="#d9a53e"/><stop offset="1" stop-color="#79501d"/></linearGradient></defs><path d="M48 3C35 19 49 22 41 34c-7-8-13-5-10 7 2 9 11 12 19 7 11-7 5-17 12-24 0 10 13 12 10 23-2 7-9 12-20 12-15 0-26-8-26-20 0-9 8-15 13-20C40 12 43 7 48 3Z" fill="#f47b2b" stroke="#ffcb67" stroke-width="2"/><path d="M9 38h82L78 51H22Z" fill="url(#g)" stroke="#69491d" stroke-width="2"/><path d="M25 52h50l-8 10H33Z" fill="url(#g)" stroke="#69491d" stroke-width="2"/><path d="M39 62h22l8 17H31Z" fill="url(#g)" stroke="#69491d" stroke-width="2"/><path d="M18 79h64l8 6H10Z" fill="url(#g)" stroke="#69491d" stroke-width="2"/></svg>PLAYFORJA</a>
-<nav class="nav" aria-label="Navegación principal"><a class="active" href="#inicio">Inicio</a><a href="#torneos">Torneos</a><a href="#salas">Salas</a><a href="#misiones">Misiones</a><a href="#marcos">Marcos</a><a href="#temporadas">Temporadas</a><a href="#streaming">Streaming</a><a href="#idiomas">Idiomas</a><a href="#evidencia">Evidencia</a></nav>
-<button class="btn btn-outline" id="download-top" type="button">⇩ Descargar App</button></header>
-<section class="hero" id="inicio"><div class="hero-copy"><h1>PLAYFORJA</h1><div class="tagline">Forjá tu leyenda</div><div class="hero-actions"><a class="btn btn-gold" href="crear-cuenta.html">＋ Crear cuenta</a><span class="btn btn-outline">♜ Sin plata real · Monedas PF y XP</span></div></div>
-<section class="tournament" id="torneos"><h2>Torneos Activos</h2><p>Competí, ganá y subí de rango — sin dinero real</p><div class="platforms" role="group" aria-label="Filtrar por plataforma"><button class="platform" data-platform="PC" aria-pressed="false">PC</button><button class="platform" data-platform="Móvil" aria-pressed="true">Móvil</button><button class="platform" data-platform="Tablet" aria-pressed="false">Tablet</button></div>
-<div class="gamegrid"><article class="gamecard" data-game="Móvil"><div class="game-logo">⚔ MOBILE LEGENDS</div><span class="mini">Móvil</span><h3>Mobile Legends 5v5</h3><p>Modo: Clasificatoria · Horario a confirmar</p><p>Recompensa de ejemplo: +120 XP</p><div class="gamefoot">32/50 anotados <button type="button" class="soon">UNIRSE</button></div></article>
-<article class="gamecard" data-game="PC"><div class="game-logo">◈ VALORANT</div><span class="mini">PC</span><h3>Valorant PC 5v5</h3><p>Modo: Custom · Horario a confirmar</p><p>Recompensa de ejemplo: +120 XP</p><div class="gamefoot">25/50 anotados <button type="button" class="soon">UNIRSE</button></div></article>
-<article class="gamecard" data-game="Móvil"><div class="game-logo">🔥 FREE FIRE</div><span class="mini">Móvil</span><h3>Free Fire Squad</h3><p>Modo: Squad · Horario a confirmar</p><p>Recompensa de ejemplo: +120 XP</p><div class="gamefoot">18/48 anotados <button type="button" class="soon">UNIRSE</button></div></article></div><p id="empty-platform" hidden>No hay torneos publicados para esta plataforma todavía.</p></section>
-<div class="crest"><svg viewBox="0 0 240 260" role="img" aria-label="Escudo de fuego PLAYFORJA"><defs><linearGradient id="shield" x2="0" y2="1"><stop stop-color="#fff0ae"/><stop offset=".35" stop-color="#d8a53e"/><stop offset=".7" stop-color="#4a3420"/><stop offset="1" stop-color="#080809"/></linearGradient></defs><path d="M120 3c-28 35-7 47-28 68-12-18-27-12-21 12 5 19 22 29 42 19 27-14 10-39 31-57 2 20 28 28 18 53-7 19-24 28-42 30-38 4-66-20-66-49 0-20 16-35 27-50C90 16 104 9 120 3Z" fill="#f2762b" stroke="#ffcf70" stroke-width="4"/><path d="M23 85 120 58l97 27-20 108-77 82-77-82Z" fill="#09090b" stroke="#d7a94e" stroke-width="8"/><path d="M40 96 120 76l80 20-16 91-64 67-64-67Z" fill="url(#shield)" stroke="#fff0a7" stroke-width="4"/><path d="M50 122h140l-22 25H72Z" fill="#161311" stroke="#e7c36b" stroke-width="4"/><path d="M77 145h86l-12 24h-62Z" fill="#d8ae58" stroke="#fff0a7" stroke-width="3"/><path d="M91 169h58l-9 37-20 24-20-24Z" fill="#161412" stroke="#c8953d" stroke-width="4"/><path d="M18 89 5 109l20 6M222 89l13 20-20 6" fill="none" stroke="#e8c26d" stroke-width="6"/></svg></div></section>
-<main class="content">
-<div class="col"><section class="section" id="salas"><h2>Salas de Juego</h2><article class="tile room"><span class="room-icon">🔥</span><div><h3>Duelo Infernal</h3><p>1v1 · Mapa Aleatorio · Premio: +200 XP</p><p>Estado: Abierta ahora</p><p>Rango: Plata+</p></div></article><article class="tile room"><span class="room-icon">🌙</span><div><h3>Torneo Nocturno</h3><p>4v4 · Modo Nocturno · Premio: Marco Fuego</p><p>Hoy · Horario a confirmar</p><p>Rango: Oro+</p></div></article></section>
-<section class="section"><h2>Mapa Mundial</h2><div class="tile mapbox"><div class="map-art">🌎　📍　📍　🔥</div></div><div class="maplabels"><span>Buenos Aires<br>Sala activa</span><span>São Paulo<br>3 torneos</span><span>LATAM<br>Conectados</span></div><p style="text-align:center;color:#cfc4b2;font-size:11px">Conectando jugadores de LATAM · Ping ilustrativo: 32ms</p></section></div>
-<div class="col"><section class="section"><h2>Progresión</h2><div class="rankgrid"><div class="rank"><svg viewBox="0 0 40 40"><path d="M20 2 36 9 33 28 20 38 7 28 4 9Z" fill="#9a6b37" stroke="#f4d18b" stroke-width="2"/><path d="m20 7 4 8 8 1-6 6 1 8-7-4-7 4 1-8-6-6 8-1Z" fill="#ffe4a0"/></svg>Bronce</div><div class="rank"><svg viewBox="0 0 40 40"><path d="M20 2 36 9 33 28 20 38 7 28 4 9Z" fill="#9da2a4" stroke="#f2f2f2" stroke-width="2"/><path d="m20 7 4 8 8 1-6 6 1 8-7-4-7 4 1-8-6-6 8-1Z" fill="#fff"/></svg>Plata</div><div class="rank"><svg viewBox="0 0 40 40"><path d="M20 2 36 9 33 28 20 38 7 28 4 9Z" fill="#c48c25" stroke="#ffe58c" stroke-width="2"/><path d="m20 6 4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1Z" fill="#fff0a5"/></svg>Oro</div><div class="rank"><b>💎</b>Platino</div><div class="rank"><b>💠</b>Diamante</div><div class="rank"><b>🔥</b>Leyenda</div></div><div class="progressbox"><div class="progresshead"><span>Tu progreso a Leyenda —</span><span>1200/1750 XP</span></div><div class="bar"><span></span></div><b>68%</b></div></section>
-<section class="section" id="marcos"><h2>Tienda de Marcos</h2><div class="season-grid"><article class="tile season"><div class="season-icon">♛</div><h3>Marco Leyenda</h3><strong>1200 PF</strong><p>Marco de prestigio</p><button class="btn btn-outline soon">CANJEAR</button></article><article class="tile season"><div class="season-icon">🔥</div><h3>Marco Fuego</h3><strong>800 PF</strong><p>Marco épico</p><button class="btn btn-outline soon">CANJEAR</button></article></div></section><section class="section" id="misiones"><h2>Misiones</h2><div class="tile"><p>⚔ Participá en un torneo · +XP</p><p>🏆 Alcanzá un nuevo rango · Recompensa</p></div></section></div>
-<div class="col"><section class="section" id="temporadas"><h2>Temporadas</h2><div class="season-grid"><article class="tile season"><div class="season-icon">🪙</div><h3>Temporada 1</h3><strong>FORJA INICIAL</strong><p>Marzo 2025 · Finalizada</p><p>Recompensa: Marco Leyenda</p><span class="mini">Completada</span></article><article class="tile season"><div class="season-icon">💎</div><h3>Temporada 2</h3><strong>LLAMA ETERNA</strong><p>Abril 2025 · En curso</p><p>Recompensa: Marco Fuego</p><span class="mini">En curso</span></article></div></section>
-<section class="section" id="evidencia"><h2>Evidencia</h2><p style="color:#cfc5b7;margin-top:-5px">Galería de logros y capturas validadas por la comunidad</p><div class="evidence"><div class="proof"><span>🏆</span>Victoria 5v5<br>+120 XP</div><div class="proof"><span>⭐</span>MVP<br>Desbloqueado</div><div class="proof"><span>🥇</span>Top 1<br>Torneo nocturno</div></div><p style="font-size:10px;color:#a99e8e">Ejemplos visuales de demostración.</p></section>
-<section class="section" id="streaming"><h2>Streaming</h2><div class="tile">Próximamente · transmisiones de la comunidad</div></section><section class="section" id="idiomas"><h2>Idiomas</h2><div class="tile">🇦🇷 Español · Más idiomas próximamente</div></section></div></main>
-<footer class="footer"><div>© 2025 PLAYFORJA · Github Pages · Código abierto en GitHub <span class="social">♨　◉　◎</span></div><nav><a href="politicas.html">Políticas</a><a href="mailto:soporte@playforja.com">Soporte</a><a href="mailto:soporte@playforja.com">Contacto: soporte@playforja.com</a></nav></footer></div>
-<dialog id="download-dialog" class="tile" style="max-width:460px;background:#151416;color:#fff;border:1px solid #9b773d;border-radius:14px"><div style="text-align:center;padding:18px"><div style="font-size:42px">⚒️🔥</div><h2 style="color:#f5d58a">¡Estamos preparando algo legendario!</h2><p>La aplicación todavía no está disponible.</p><p style="color:#cfc5b7">Estamos trabajando para ofrecerte la mejor experiencia. Muy pronto vas a poder llevar PLAYFORJA con vos.</p><h3 style="color:#f5d58a">¡La forja nunca se detiene! 🔥</h3><button class="btn btn-gold" id="close-download">Entendido</button></div></dialog>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>PLAYFORJA — Forjá tu leyenda</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#080808;color:#f6e2b3;font-family:Arial,Helvetica,sans-serif}
+#loading{min-height:100vh;display:grid;place-items:center;padding:24px;text-align:center}
+.panel{max-width:520px;padding:28px;border:1px solid #b98b42;border-radius:14px;background:linear-gradient(145deg,#1a1917,#080808);box-shadow:0 18px 60px #000}
+h1{font-size:clamp(24px,5vw,34px);color:#f4d48a;margin:0 0 12px}p{line-height:1.5;color:#eee}
+a{color:#f4d48a}#app{display:none;width:100%;height:100vh;border:0;background:#080808}
+</style>
+</head>
+<body>
+<main id="loading"><section class="panel"><h1>⚒️ PLAYFORJA</h1><p id="status">Cargando las referencias originales y preparando la página…</p><noscript>Necesitás activar JavaScript para cargar la experiencia visual.</noscript></section></main>
+<iframe id="app" title="PLAYFORJA — Forjá tu leyenda"></iframe>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script>
-const tabs=[...document.querySelectorAll('[data-platform]')],games=[...document.querySelectorAll('[data-game]')],empty=document.getElementById('empty-platform');
-tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.setAttribute('aria-pressed',String(x===t)));games.forEach(g=>g.hidden=t.dataset.platform==='Tablet'||g.dataset.game!==t.dataset.platform);empty.hidden=t.dataset.platform!=='Tablet';}));
-const dialog=document.getElementById('download-dialog');document.getElementById('download-top').addEventListener('click',()=>dialog.showModal());document.getElementById('close-download').addEventListener('click',()=>dialog.close());
-document.querySelectorAll('.soon').forEach(b=>b.addEventListener('click',()=>{const d=document.createElement('dialog');d.className='tile';d.style='background:#151416;color:white;border:1px solid #9b773d;border-radius:14px;max-width:380px;text-align:center';d.innerHTML='<h2 style="color:#f5d58a">¡Próximamente!</h2><p>Esta función estará disponible cuando se habiliten los torneos y las recompensas oficiales.</p><button class="btn btn-gold">Entendido</button>';document.body.append(d);d.showModal();d.querySelector('button').onclick=()=>{d.close();d.remove()};}));
-</script></body></html>
+(async()=>{
+ const status=document.getElementById("status");
+ const frame=document.getElementById("app");
+ try{
+  const response=await fetch("./PLAYFORJA-referencias-exactas.zip",{cache:"no-store"});
+  if(!response.ok) throw new Error("No se pudo descargar el paquete ("+response.status+").");
+  const zip=await JSZip.loadAsync(await response.arrayBuffer());
+  const root="playforja-pixel-perfect/";
+  const get=async name=>{const f=zip.file(root+name);if(!f)throw new Error("Falta el archivo "+name+" dentro del paquete.");return f.async("string")};
+  let page=await get("index.html");
+  const css=await get("site.css");
+  page=page.replace(/<link rel="stylesheet" href="site\.css">/i,"<style>"+css+"</style>");
+  page=page.replace("<head>","<head><base href=\""+new URL("./",location.href).href+"\">");
+  if(page.includes('src="assets/referencia-inicio.jpg"')){
+   const img=await zip.file(root+"assets/referencia-inicio.jpg").async("base64");
+   page=page.replaceAll('src="assets/referencia-inicio.jpg"','src="data:image/jpeg;base64,'+img+'"');
+  }
+  if(page.includes('src="assets/referencia-registro.jpg"')){
+   const img=await zip.file(root+"assets/referencia-registro.jpg").async("base64");
+   page=page.replaceAll('src="assets/referencia-registro.jpg"','src="data:image/jpeg;base64,'+img+'"');
+  }
+  frame.srcdoc=page;
+  frame.onload=()=>{document.getElementById("loading").remove();frame.style.display="block";document.title="PLAYFORJA — Forjá tu leyenda";};
+ }catch(error){
+  status.textContent="No se pudo cargar PLAYFORJA: "+error.message+" Revisá que el ZIP esté en la raíz del repositorio y que la conexión esté disponible.";
+  const panel=document.querySelector(".panel");
+  const link=document.createElement("a");link.href="./PLAYFORJA-referencias-exactas.zip";link.textContent="Descargar paquete original";link.style.display="inline-block";link.style.marginTop="12px";panel.appendChild(link);
+ }
+})();
+</script>
+</body></html>
